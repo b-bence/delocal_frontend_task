@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-import PaletteDetails from './PaletteDetails';
+import PaletteItem from './PaletteItem';
 
 const Palettes = (props) => {
 
 	return props.palettes.map((palette) =>(
-        <PaletteDetails palette={palette}/>
+        <PaletteItem palette={palette}/>
         ));
 };
 

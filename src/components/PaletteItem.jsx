@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-const PaletteDetails = (props) => {
+const PaletteItem = (props) => {
 
 	return (
 		<div className='palette'>
@@ -9,4 +9,4 @@ const PaletteDetails = (props) => {
 	);
 };
 
-export default PaletteDetails;
+export default PaletteItem;

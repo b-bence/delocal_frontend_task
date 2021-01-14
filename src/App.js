@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import './components/PaletteDetails'
+import './components/PaletteItem'
 import axios from 'axios';
-import PaletteDetails from './components/PaletteDetails';
+import PaletteDetails from './components/PaletteItem';
 import Palettes from './components/Palettes';
 
 function App() {
