@@ -1,0 +1,52 @@
+.palette{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    height: 10%;
+    flex-basis: 40%;
+    border: black solid 2px;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.paletteDetails{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  width: 60%;
+  border: solid 2px yellow;
+}
+
+.paletteTitle{
+  color: white;
+  font-size: x-large;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.paletteNameAndDate{
+  color: white;
+  font-size: medium;
+  margin-bottom: 15px;
+}
+
+.votesAndViews{
+  width: 40%;
+  padding: 10px;
+  background-color: #1e76ae;
+  color: white;
+  font-size: medium;
+  font-weight: bolder;
+}
+
+
+@media screen and (max-width: 768px) {
+    .palette {
+      margin-left: 10px;
+      flex-basis: 80%;
+    }
+  }
+
+  
