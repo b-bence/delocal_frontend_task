@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import './components/PaletteItem'
 import axios from 'axios';
-import PaletteDetails from './components/PaletteItem';
 import Palettes from './components/Palettes';
 
 function App() {
@@ -11,13 +10,13 @@ function App() {
 
   useEffect (() => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/"; // use Cors Proxy to avoid “No Access-Control-Allow-Origin header” problems
-    const url = apiURL;
-    axios.get(proxyurl + url)
-    .then(res => setPalettes(res.data))
+        fetch(proxyurl + apiURL)
+        .then(res => res.json())
+        .then(data => setPalettes(data));
   },[])
 
   return (
-    <div>
+    <div id="paletteContainer">
       <Palettes palettes={palettes}></Palettes>
     </div>
   );
