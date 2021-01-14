@@ -3,6 +3,8 @@ import './PaletteItem.css'
 
 const PaletteItem = (props) => {
 
+	const imageUrl = props.palette.imageUrl;
+
 	const getDate = (stringTime) => {
 		let fullDate = stringTime;
 		fullDate = fullDate.split(' ');
@@ -17,11 +19,7 @@ const PaletteItem = (props) => {
 				<div className='paletteNameAndDate'>by {props.palette.userName} at {getDate(props.palette.dateCreated)}</div>
 				<div className='votesAndViews'>{props.palette.numViews} views {props.palette.numVotes} votes</div>
 			</div>
-
-			<div>
-				
-			</div>
-			
+				<img className='paletteImage' src={imageUrl} alt=""></img>
 		</div>
 	);
 };
