@@ -15,9 +15,24 @@ function App() {
         .then(data => setPalettes(data));
   },[])
 
+  const getCurrentTime = () =>{
+    let today = new Date();
+    let time = today.getHours() + ":" + today.getMinutes()
+    return time;
+  }
+  
+
   return (
-    <div id="paletteContainer">
-      <Palettes palettes={palettes}></Palettes>
+    <div id="pageDiv">
+
+      <div id="headerDiv">
+  <div id="update">Last Updated at {getCurrentTime()}</div>
+        <div id="title">ColourLovers. <b>Live.</b></div>
+      </div>
+      
+      <div id="paletteContainer">
+        <Palettes palettes={palettes}></Palettes>
+      </div>
     </div>
   );
 }
