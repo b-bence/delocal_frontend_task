@@ -3,8 +3,8 @@ import React, { useEffect, useState, useContext } from 'react';
 const PaletteDetails = (props) => {
 
 	return (
-		<div className='wholePage' style={{ textAlign: 'center' }}>
-			<h1>Hii</h1>
+		<div className='palette'>
+			<h2>{props.palette.title}</h2>
 		</div>
 	);
 };

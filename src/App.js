@@ -3,6 +3,7 @@ import './App.css';
 import './components/PaletteDetails'
 import axios from 'axios';
 import PaletteDetails from './components/PaletteDetails';
+import Palettes from './components/Palettes';
 
 function App() {
   const apiURL = "http://www.colourlovers.com/api/palettes/new?format=json"
@@ -12,12 +13,12 @@ function App() {
     const proxyurl = "https://cors-anywhere.herokuapp.com/"; // use Cors Proxy to avoid “No Access-Control-Allow-Origin header” problems
     const url = apiURL;
     axios.get(proxyurl + url)
-    .then(res => console.log(res))
+    .then(res => setPalettes(res.data))
   },[])
 
   return (
     <div>
-      <PaletteDetails></PaletteDetails>
+      <Palettes palettes={palettes}></Palettes>
     </div>
   );
 }
