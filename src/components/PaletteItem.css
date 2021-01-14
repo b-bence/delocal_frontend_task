@@ -2,10 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: left;
-    flex-direction: column;
-    height: 10%;
+    flex-direction: row;
+    height: 12vmax;
     flex-basis: 40%;
-    border: black solid 2px;
     border-radius: 10px;
     margin: 15px;
 }
@@ -16,30 +15,36 @@
   align-items: left;
   flex-direction: column;
   width: 70%;
-  border: solid 2px yellow;
+}
+
+.paletteImage{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
 }
 
 .paletteTitle{
   color: white;
-  font-size: x-large;
-  font-weight: bolder;
-  margin-bottom: 5px;
+  font-size: 2.5vmax;
+  font-weight: 500;
 }
 
 .paletteNameAndDate{
   color: white;
-  font-size: medium;
+  font-size: 1.5vmax;
   margin-bottom: 15px;
 }
 
 .votesAndViews{
-  width: 70%;
+  width: 50%;
   padding: 10px;
   background-color: #1e76ae;
   color: white;
-  font-size: medium;
+  font-size: 1.5vmax;
   font-weight: bolder;
 }
+
+
 
 
 @media screen and (max-width: 768px) {
