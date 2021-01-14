@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import './components/PaletteDetails'
+import axios from 'axios';
+import PaletteDetails from './components/PaletteDetails';
 
 function App() {
+  const apiURL = "http://www.colourlovers.com/api/palettes/new?format=json"
+  const [palettes, setPalettes]= useState([])
+
+  useEffect (() => {
+    const proxyurl = "https://cors-anywhere.herokuapp.com/"; // use Cors Proxy to avoid “No Access-Control-Allow-Origin header” problems
+    const url = apiURL;
+    axios.get(proxyurl + url)
+    .then(res => console.log(res))
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <PaletteDetails></PaletteDetails>
     </div>
   );
 }
