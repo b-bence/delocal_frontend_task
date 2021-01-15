@@ -25,9 +25,20 @@ function App() {
 
   const getCurrentTime = () =>{
     let today = new Date();
-    let time = today.getHours() + ":" + today.getMinutes()
-    return time;
+    let hours = today.getHours()
+    hours < 10 ? hours = "0" + hours : hours = hours;
+
+    let minutes = today.getMinutes();
+    minutes < 10 ? minutes = "0" + minutes : minutes = minutes;
+
+    let time =  hours + ":" + minutes + ":"
+    return toStandardTime(time);
   }
+
+  function toStandardTime(militaryTime) {
+		militaryTime = militaryTime.split(':');
+		return (militaryTime[0].charAt(0) == 1 && militaryTime[0].charAt(1) > 2) ? (militaryTime[0] - 12) + ':' + militaryTime[1] + ':' + militaryTime[2] + ' P.M.' : militaryTime.join(':') + ' A.M.'
+	}
   
 
   return (
