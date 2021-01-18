@@ -17,7 +17,6 @@ function App() {
 
   window.addEventListener('scroll', function() {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-       //setLoadEveryPlatte(true);
        setLoad(load += 10)
     }
  });
