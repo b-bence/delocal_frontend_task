@@ -4,7 +4,7 @@ import './components/PaletteItem'
 import Palettes from './components/Palettes';
 
 function App() {
-  const apiURL = "http://www.colourlovers.com/api/palettes?format=json&numResults=100"
+  const apiURL = "http://www.colourlovers.com/api/palettes/new?format=json&numResults=100"
   const [palettes, setPalettes]= useState([])
   let [load, setLoad] = useState(10)
 
