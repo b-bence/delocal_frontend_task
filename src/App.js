@@ -4,9 +4,9 @@ import './components/PaletteItem'
 import Palettes from './components/Palettes';
 
 function App() {
-  const apiURL = "http://www.colourlovers.com/api/palettes/new?format=json"
+  const apiURL = "http://www.colourlovers.com/api/palettes?format=json&numResults=100"
   const [palettes, setPalettes]= useState([])
-  const [loadEveryPalette, setLoadEveryPlatte] = useState(false)
+  let [load, setLoad] = useState(10)
 
   useEffect (() => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/"; // use Cors Proxy to avoid “No Access-Control-Allow-Origin header” problems
@@ -17,8 +17,7 @@ function App() {
 
   window.addEventListener('scroll', function() {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-       console.log("you're at the bottom of the page");
-       setLoadEveryPlatte(true);
+       setLoad(load += 10)
     }
  });
 
@@ -26,10 +25,12 @@ function App() {
   const getCurrentTime = () =>{
     let today = new Date();
     let hours = today.getHours()
-    hours < 10 ? hours = "0" + hours : hours = hours;
+
+    if (hours < 10) hours = "0" + hours;
 
     let minutes = today.getMinutes();
-    minutes < 10 ? minutes = "0" + minutes : minutes = minutes;
+
+    if (minutes < 10) minutes = "0" + minutes
 
     let time =  hours + ":" + minutes + ":"
     return toStandardTime(time);
@@ -37,7 +38,7 @@ function App() {
 
   function toStandardTime(militaryTime) {
 		militaryTime = militaryTime.split(':');
-		return (militaryTime[0].charAt(0) == 1 && militaryTime[0].charAt(1) > 2) ? (militaryTime[0] - 12) + ':' + militaryTime[1] + ':' + militaryTime[2] + ' P.M.' : militaryTime.join(':') + ' A.M.'
+		return (militaryTime[0].charAt(0) === 1 && militaryTime[0].charAt(1) > 2) ? (militaryTime[0] - 12) + ':' + militaryTime[1] + ':' + militaryTime[2] + ' P.M.' : militaryTime.join(':') + ' A.M.'
 	}
   
 
@@ -50,7 +51,7 @@ function App() {
       </div>
       
       <div id="paletteContainer">
-        <Palettes palettes={loadEveryPalette === true ? palettes : palettes.slice(0,10)}></Palettes>
+        <Palettes palettes={palettes.slice(0,load)}></Palettes>
       </div>
     </div>
   );
