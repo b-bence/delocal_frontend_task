@@ -6,7 +6,7 @@ import Palettes from './components/Palettes';
 function App() {
   const apiURL = "http://www.colourlovers.com/api/palettes?format=json&numResults=100"
   const [palettes, setPalettes]= useState([])
-  let [load, setLoad] = useState(0)
+  let [load, setLoad] = useState(10)
 
   useEffect (() => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/"; // use Cors Proxy to avoid “No Access-Control-Allow-Origin header” problems
@@ -51,7 +51,7 @@ function App() {
       </div>
       
       <div id="paletteContainer">
-        <Palettes palettes={palettes.slice(0,load + 10)}></Palettes>
+        <Palettes palettes={palettes.slice(0,load)}></Palettes>
       </div>
     </div>
   );
